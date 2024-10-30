@@ -1,34 +1,4 @@
 const container = document.getElementById("container");
-
-function createGrid() {
-  for (let i = 0; i < 16; i++) {
-    const cellsContainer = document.createElement("div");
-    cellsContainer.className = "cells-container";
-    for (let j = 0; j < 16; j++) {
-      const div = document.createElement("div");
-      //   div.textContent = `cell ${i + 1} ${j + 1}`;
-      div.className = "cell";
-      cellsContainer.appendChild(div);
-    }
-    container.appendChild(cellsContainer);
-  }
-}
-
-createGrid();
-
-/**
- * @type {HTMLCollectionOf<Element>}
- */
-
-const cells = document.getElementsByClassName("cell");
-
-Array.from(cells).forEach((cell) => {
-  cell.addEventListener("mouseover", () => {
-    console.log("hovered");
-    cell.style.backgroundColor = "blue";
-  });
-});
-
 const inputButton = document.getElementById("input-button");
 
 inputButton.addEventListener("click", () => {
@@ -36,8 +6,46 @@ inputButton.addEventListener("click", () => {
     "Please enter the size of the grid (100 is the maximum)"
   );
 
-  removeGrid();
+  createGrid(userInput);
 });
+
+function createGrid(size) {
+  if (size > 100) {
+    alert("Grid size cannot be greater than 100, please try again");
+    return;
+  }
+
+  removeGrid();
+
+  cellSize = 600 / size;
+
+  for (let i = 0; i < size; i++) {
+    const cellsContainer = document.createElement("div");
+    cellsContainer.className = "cells-container";
+
+    for (let j = 0; j < size; j++) {
+      const div = document.createElement("div");
+      div.className = "cell";
+      div.style.height = `${cellSize}px`;
+      div.style.width = `${cellSize}px`;
+      cellsContainer.appendChild(div);
+    }
+    container.appendChild(cellsContainer);
+  }
+
+  addMouseoverListeners();
+}
+
+function addMouseoverListeners() {
+  const cells = document.getElementsByClassName("cell");
+
+  Array.from(cells).forEach((cell) => {
+    cell.addEventListener("mouseover", () => {
+      console.log("hovered");
+      cell.style.backgroundColor = "blue";
+    });
+  });
+}
 
 function removeGrid() {
   const containers = document.getElementsByClassName("cells-container");
@@ -46,3 +54,5 @@ function removeGrid() {
     container.remove();
   });
 }
+
+createGrid(16);
