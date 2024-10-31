@@ -6,9 +6,10 @@ const resetButton = document.getElementById("reset-button");
 const gridSizeSlider = document.getElementById("grid-size-slider");
 const gridSizeValue = document.getElementById("grid-size-value");
 const gridSizeNumber = document.getElementById("grid-size-number");
+
 let rainbowMode = false;
 const GRID_DIMENSION = 500;
-let gridSize = 0;
+let gridSize = 16;
 
 function createGrid(size) {
   gridSize = size;
@@ -54,11 +55,7 @@ function addMouseoverListeners() {
 }
 
 function removeGrid() {
-  const containers = document.getElementsByClassName("cells-container");
-
-  Array.from(containers).forEach((container) => {
-    container.remove();
-  });
+  gridContainer.innerHTML = "";
 }
 
 bordersCheckBox.addEventListener("change", () => {
@@ -100,4 +97,4 @@ gridSizeNumber.addEventListener("input", () => {
   createGrid(size);
 });
 
-createGrid(16);
+createGrid(gridSize);
