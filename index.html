@@ -4,32 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body>
-    <div id="options">
-      <label for="grid-size-slider">Grid Size</label>
-      <input type="range" id="grid-size-slider" min="16" max="100" value="16" />
-      <span id="grid-size-value">100</span>
-      <input
-        type="number"
-        id="grid-size-number"
-        min="16"
-        max="100"
-        value="16"
-      />
-    </div>
-    <button class="button" id="input-button">Create New Grid</button>
-    <button class="button" id="reset-button">Reset Grid</button>
-    <div id="toggle-container">
-      <label for="grid-toggle">Show borders</label>
-      <input type="checkbox" id="grid-toggle" />
+    <h1 id="title">Etch A Sketch</h1>
+    <div id="options-container">
+      <div id="grid-size-container">
+        <div>
+          <label for="grid-size-slider">Grid Size</label>
+          <input
+            type="range"
+            id="grid-size-slider"
+            min="16"
+            max="100"
+            value="16"
+          />
+          <span id="grid-size-value">100</span>
+          <input
+            type="number"
+            id="grid-size-number"
+            min="16"
+            max="100"
+            value="16"
+          />
+        </div>
+      </div>
 
-      <label for="rainbow-toggle">Rainbow mode</label>
-      <input type="checkbox" id="rainbow-toggle" />
+      <div id="toggle-container">
+        <div>
+          <label for="grid-toggle">Show borders</label>
+          <input type="checkbox" id="grid-toggle" />
+        </div>
+
+        <div>
+          <label for="rainbow-toggle">Rainbow mode</label>
+          <input type="checkbox" id="rainbow-toggle" />
+        </div>
+      </div>
     </div>
 
-    <div id="container">Container</div>
+    <div id="reset-button-container">
+      <button class="button" id="reset-button">Reset Grid</button>
+    </div>
+
+    <div id="grid-container"></div>
     <script src="etchasketch.js"></script>
   </body>
 </html>

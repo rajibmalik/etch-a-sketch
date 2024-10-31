@@ -1,5 +1,4 @@
-const container = document.getElementById("container");
-const inputButton = document.getElementById("input-button");
+const gridContainer = document.getElementById("grid-container");
 const hideBordersButton = document.getElementById("hide-borders-button");
 const bordersCheckBox = document.getElementById("grid-toggle");
 const rainbowCheckBox = document.getElementById("rainbow-toggle");
@@ -8,15 +7,8 @@ const gridSizeSlider = document.getElementById("grid-size-slider");
 const gridSizeValue = document.getElementById("grid-size-value");
 const gridSizeNumber = document.getElementById("grid-size-number");
 let rainbowMode = false;
+const GRID_DIMENSION = 500;
 let gridSize = 0;
-
-inputButton.addEventListener("click", () => {
-  const userInput = prompt(
-    "Please enter the size of the grid (100 is the maximum)"
-  );
-
-  createGrid(userInput);
-});
 
 function createGrid(size) {
   gridSize = size;
@@ -27,7 +19,7 @@ function createGrid(size) {
 
   removeGrid();
 
-  cellSize = 600 / size;
+  cellSize = GRID_DIMENSION / size;
 
   for (let i = 0; i < size; i++) {
     const cellsContainer = document.createElement("div");
@@ -40,7 +32,7 @@ function createGrid(size) {
       div.style.width = `${cellSize}px`;
       cellsContainer.appendChild(div);
     }
-    container.appendChild(cellsContainer);
+    gridContainer.appendChild(cellsContainer);
   }
 
   addMouseoverListeners();
