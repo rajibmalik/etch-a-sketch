@@ -13,8 +13,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: 480px;
-  width: 480px; */
 }
 
 .cells-container {
@@ -25,11 +23,9 @@ body {
 }
 
 .cell {
-  /* width: 30px;
-  height: 30px; */
   box-sizing: border-box;
-  background-color: red;
-  border: 1px solid #333; /* Optional: for grid lines */
+  background-color: rgb(250, 250, 250);
+  border: 1px solid #333;
 }
 
 #input-button {

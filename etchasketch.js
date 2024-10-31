@@ -1,5 +1,7 @@
 const container = document.getElementById("container");
 const inputButton = document.getElementById("input-button");
+const hideBordersButton = document.getElementById("hide-borders-button");
+const bordersCheckBox = document.getElementById("grid-toggle");
 
 inputButton.addEventListener("click", () => {
   const userInput = prompt(
@@ -54,5 +56,17 @@ function removeGrid() {
     container.remove();
   });
 }
+
+bordersCheckBox.addEventListener("change", () => {
+  const cells = document.getElementsByClassName("cell");
+
+  Array.from(cells).forEach((cell) => {
+    if (bordersCheckBox.checked) {
+      cell.style.border = "none";
+    } else {
+      cell.style.border = "1px solid #333";
+    }
+  });
+});
 
 createGrid(16);
