@@ -7,12 +7,28 @@
     <title>Document</title>
   </head>
   <body>
-    <button id="input-button">Create New Grid</button>
-    <div id="grid-toggle-container">
+    <div id="options">
+      <label for="grid-size-slider">Grid Size</label>
+      <input type="range" id="grid-size-slider" min="16" max="100" value="16" />
+      <span id="grid-size-value">100</span>
+      <input
+        type="number"
+        id="grid-size-number"
+        min="16"
+        max="100"
+        value="16"
+      />
+    </div>
+    <button class="button" id="input-button">Create New Grid</button>
+    <button class="button" id="reset-button">Reset Grid</button>
+    <div id="toggle-container">
       <label for="grid-toggle">Show borders</label>
       <input type="checkbox" id="grid-toggle" />
+
+      <label for="rainbow-toggle">Rainbow mode</label>
+      <input type="checkbox" id="rainbow-toggle" />
     </div>
-    <button id="hide-borders-button">Hide Borders</button>
+
     <div id="container">Container</div>
     <script src="etchasketch.js"></script>
   </body>
